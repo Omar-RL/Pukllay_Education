@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progreso del Estudiante | Pukllay Education</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    body {
+      background-color: #f5efe6;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .progress-container {
+      max-width: 400px;
+      margin: 80px auto;
+      background-color: #fff8f0;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .progress-container h2 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .progress-container p {
+      color: #444;
+      margin-bottom: 20px;
+    }
+
+    .circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(#4CAF50 85%, #e0e0e0 0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px auto;
+      position: relative;
+    }
+
+    .circle span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .back-link {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background-color 0.2s ease;
+    }
+
+    .back-link:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-container">
+    <h2>📊 Evaluación y Progreso</h2>
+    <p>Matemática – Fracciones</p>
+
+    <div class="circle">
+      <span>85%</span>
+    </div>
+
+    <p>¡Buen trabajo! Sigue practicando para llegar al 100%.</p>
+
+    <a href="dashboard_student.html" class="back-link">⬅ Volver al panel</a>
+  </div>
+
+  <script src="js/progress.js"></script>
+</body>
+</html>

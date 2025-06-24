@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sincronización | Pukllay Education</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .sync-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f5efe6;
+      text-align: center;
+    }
+
+    .sync-wrapper h2 {
+      color: #4CAF50;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .sync-wrapper p {
+      color: #555;
+      margin-bottom: 25px;
+    }
+
+    .loader {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid #4CAF50;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .completed-message {
+      display: none;
+      margin-top: 30px;
+      color: #388e3c;
+      font-weight: bold;
+    }
+
+    .back-link {
+      display: block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #4CAF50;
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <div class="sync-wrapper">
+    <h2>🔄 Sincronizando...</h2>
+    <p>Actualizando contenidos y datos del estudiante.</p>
+    <div class="loader" id="spinner"></div>
+    <p class="completed-message" id="done">✅ Sincronización completada.</p>
+    <a class="back-link" href="dashboard_student.html" id="back-link" style="display:none;">⬅ Volver al panel</a>
+  </div>
+
+  <script src="js/sync.js"></script>
+  <script>
+    // Simulación de sincronización
+    setTimeout(() => {
+      document.getElementById('spinner').style.display = 'none';
+      document.getElementById('done').style.display = 'block';
+      document.getElementById('back-link').style.display = 'inline-block';
+    }, 3000); // 3 segundos de espera
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Docente | Pukllay Education</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background-color: #4CAF50;
+      color: white;
+      width: 200px;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-weight: 500;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .main-content {
+      margin-left: 200px;
+      padding: 30px 20px;
+      flex: 1;
+    }
+
+    #students li {
+      background: #f1f8e9;
+      border: 1px solid #aed581;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 6px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    #students li a {
+      background-color: #4CAF50;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: background-color 0.2s;
+    }
+
+    #students li a:hover {
+      background-color: #388e3c;
+    }
+    /* Estilo para el selector de idioma en el sidebar */
+.sidebar label {
+  margin-top: auto;
+  font-size: 0.85rem;
+  color: #ffffff;
+}
+
+#lang-select {
+  margin-top: 5px;
+  padding: 6px 8px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  background-color: #ffffff;
+  color: #4CAF50;
+  font-weight: 500;
+  appearance: none;
+  cursor: pointer;
+}
+
+#lang-select:focus {
+  outline: 2px solid #a5d6a7;
+}
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+        z-index: 1000;
+        box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+      }
+
+      .sidebar h2 {
+        display: none;
+      }
+
+      .sidebar a {
+        font-size: 0.8rem;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 80px 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Pukllay</h2>
+      <a href="dashboard_teacher.html">🏫 <span>Inicio</span></a>
+      <a href="sync.html">🔄 <span>Sincronizar</span></a>
+      <a href="index.html">🚪 <span>Cerrar sesión</span></a>
+      <label for="lang-select" style="margin-top: auto; color: white; font-size: 0.85rem;">🌐 Idioma:</label>
+      <select id="lang-select" style="margin-top: 5px; padding: 6px; border-radius: 4px;">
+        <option value="es">Español</option>
+        <option value="qu">Quechua</option>
+</select>
+
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h2>Bienvenido, Profesor 👨‍🏫</h2>
+        <p style="text-align:center; color:#666;">Estos son tus estudiantes registrados</p>
+      </header>
+
+      <section>
+        <h3 style="margin-top: 20px;">👩‍🎓 Estudiantes</h3>
+        <ul id="students"></ul>
+      </section>
+
+      <footer style="margin-top: 40px; text-align:center; font-size: 0.85rem; color: #999;">
+        © 2025 Pukllay Education
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/teacher.js"></script>
+  <script>
+  const translations = {
+    qu: {
+      welcome: "Allin hamusunki, Yachachiq 👨‍🏫",
+      message: "Kaykuna kikinkuna yachaqkunaqa",
+      title: "Yachaqkuna",
+      sync: "Kikinchay",
+      logout: "Lloqsispa lluqsiy",
+      home: "Qallariy"
+    },
+    es: {
+      welcome: "Bienvenido, Profesor 👨‍🏫",
+      message: "Estos son tus estudiantes registrados",
+      title: "Estudiantes",
+      sync: "Sincronizar",
+      logout: "Cerrar sesión",
+      home: "Inicio"
+    }
+  };
+
+  document.getElementById("lang-select").addEventListener("change", (e) => {
+    const lang = e.target.value;
+    const t = translations[lang];
+
+    document.querySelector("header h2").textContent = t.welcome;
+    document.querySelector("header p").textContent = t.message;
+    document.querySelector("section h3").textContent = `👩‍🎓 ${t.title}`;
+
+    // Cambiar texto del sidebar (según orden de enlaces)
+    const links = document.querySelectorAll(".sidebar a span");
+    links[0].textContent = t.home;
+    links[1].textContent = t.sync;
+    links[2].textContent = t.logout;
+  });
+</script>
+
+</body>
+</html>

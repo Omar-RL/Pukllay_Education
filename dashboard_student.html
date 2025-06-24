@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Estudiante | Pukllay Education</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      background-color: #4CAF50;
+      color: white;
+      width: 200px;
+      padding: 20px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .sidebar h2 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin: 10px 0;
+      font-weight: 500;
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .sidebar a:hover {
+      text-decoration: underline;
+    }
+
+    .main-content {
+      margin-left: 200px;
+      padding: 30px 20px;
+      flex: 1;
+    }
+
+    @media (max-width: 768px) {
+      .layout {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 10px;
+        z-index: 1000;
+        box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+      }
+
+      .sidebar h2 {
+        display: none;
+      }
+
+      .sidebar a {
+        font-size: 0.8rem;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        margin: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 80px 15px 20px; /* espacio para no solaparse con la barra inferior */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h2>Pukllay</h2>
+      <a href="dashboard_student.html">🏠 <span>Inicio</span></a>
+      <a href="progress.html">📈 <span>Progreso</span></a>
+      <a href="sync.html">🔄 <span>Sincronizar</span></a>
+      <a href="index.html">🚪 <span>Cerrar sesión</span></a>
+    </aside>
+
+    <main class="main-content">
+      <header>
+        <h2>Bienvenida, Carmen 👋</h2>
+        <p style="text-align:center; color:#666;">Aquí están tus lecciones personalizadas para hoy</p>
+      </header>
+
+      <section>
+        <h3 style="margin-top: 20px;">📚 Tus lecciones</h3>
+        <ul id="lessons"></ul>
+      </section>
+
+      <footer style="margin-top: 40px; text-align:center; font-size: 0.85rem; color: #999;">
+        © 2025 Pukllay Education
+      </footer>
+    </main>
+  </div>
+
+  <script src="js/student.js"></script>
+</body>
+</html>
