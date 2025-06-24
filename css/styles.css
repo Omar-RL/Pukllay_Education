@@ -1,0 +1,136 @@
+:root {
+  --color-bg: #f9f7f3;
+  --color-primary: #4CAF50;
+  --color-secondary: #ffffff;
+  --color-text: #333;
+  --color-accent: #8bc34a;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 420px;
+  background-color: var(--color-secondary);
+  padding: 30px 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px var(--color-shadow);
+  transition: all 0.3s ease-in-out;
+}
+
+h1, h2, h3 {
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+button {
+  width: 100%;
+  padding: 12px 14px;
+  margin-top: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+button {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+a {
+  display: inline-block;
+  margin-top: 15px;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul li {
+  background-color: #f1f8e9;
+  border: 1px solid #c5e1a5;
+  padding: 10px 14px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  transition: background 0.2s;
+}
+
+ul li:hover {
+  background-color: #e6f4d6;
+}
+
+#error-msg {
+  color: crimson;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* Loader / Spinner */
+.loader {
+  border: 6px solid #f3f3f3;
+  border-top: 6px solid var(--color-accent);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 30px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive (opcional si se adapta a móvil) */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px 15px;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
